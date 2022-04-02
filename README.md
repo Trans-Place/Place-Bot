@@ -1,8 +1,8 @@
-# PlaceDE Bot
+# r/transplace Bot
 Fork of PlaceDE Bot who forked it from PlaceNL Bot! Thanks guys!  
 This is a Trans bot! The bot updates the things to draw from [here](https://github.com/Trans-Place/Image-Creator), to make sure there are no clashes.
 
-## Installationsanweisungen
+## Install Instructions
 
 Before running it make sure that your pixel-placing-ability is off cooldown.
 
