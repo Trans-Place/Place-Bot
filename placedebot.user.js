@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Trans Bot
-// @namespace    https://github.com/Trans-Bot-Doing-Trans-Things/Bot
+// @namespace    https://github.com/Trans-Place/Place-Bot/
 // @version      1
 // @description  r/transplace bot
 // @author       NoahvdAa, reckter, SgtChrome, nama17
@@ -9,8 +9,8 @@
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=reddit.com
 // @require	     https://cdn.jsdelivr.net/npm/toastify-js
 // @resource     TOASTIFY_CSS https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css
-// @updateURL    https://github.com/Trans-Bot-Doing-Trans-Things/Bot/raw/main/placedebot.user.js
-// @downloadURL  https://github.com/Trans-Bot-Doing-Trans-Things/Bot/raw/main/placedebot.user.js
+// @updateURL    https://github.com/Trans-Place/Place-Bot/raw/main/placedebot.user.js
+// @downloadURL  https://github.com/Trans-Place/Place-Bot/raw/main/placedebot.user.js
 // @grant        GM_getResourceText
 // @grant        GM_addStyle
 // ==/UserScript==
@@ -50,12 +50,12 @@ const COLOR_MAPPINGS = {
 	canvas = document.body.appendChild(canvas);
 
 	Toastify({
-		text: 'Abfrage des Zugriffstokens...',
+		text: 'Requesting access token...',
 		duration: 10000
 	}).showToast();
 	accessToken = await getAccessToken();
 	Toastify({
-		text: 'Zugriffstoken eingesammelt!',
+		text: 'Collected access token!',
 		duration: 10000
 	}).showToast();
 
@@ -137,7 +137,7 @@ async function attemptPlace() {
 
 function updateOrders() {
 	fetch(`https://raw.githubusercontent.com/Trans-Place/Image-Creator/main/pixel.json`, {cache: "no-store"}).then(async (response) => {
-		if (!response.ok) return console.warn('Bestellungen können nicht geladen werden!');
+		if (!response.ok) return console.warn('Orders couldnt be loaded!');
 		const data = await response.json();
 
 		if (JSON.stringify(data) !== JSON.stringify(placeOrders)) {
@@ -155,11 +155,11 @@ function updateOrders() {
 		if (data?.version !== VERSION && !UPDATE_PENDING) {
 			UPDATE_PENDING = true
 			Toastify({
-				text: `NEW VERSION AVAILABLE! Update here: https://github.com/Trans-Bot-Doing-Trans-Things/Bot/raw/main/placedebot.user.js`,
+				text: `NEW VERSION AVAILABLE! Update here: https://github.com/Trans-Place/Place-Bot/raw/main/placedebot.user.js`,
 				duration: -1,
 				onClick: () => {
 					// Tapermonkey captures this and opens a new tab
-					window.location = 'https://github.com/Trans-Bot-Doing-Trans-Things/Bot/raw/main/placedebot.user.js'
+					window.location = 'https://github.com/Trans-Place/Place-Bot/raw/main/placedebot.user.js'
 				}
 			}).showToast();
 
